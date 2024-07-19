@@ -1,11 +1,46 @@
+/*fonts*/
+@font-face {
+    src: url(fonts/OpenSans/static/OpenSans-Light.ttf);
+    font-family: OpenSans-Light;
+}
+
 body{
-    background-color: grey;
+    background-color: grey; 
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 h1{
+/*fonts*/
+    font-family: 'Open+Sans', Verdana, Geneva, Tahoma, sans-serif;
     color: aqua;
+
+/*border*/
+    border: 3px black solid;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    border-radius: 10px;
+
+/*shadow*/
+    text-shadow: 5px 5px 5px black, -5px -5px 5px red;
 }
 p{
+/*fonts*/
+    font-family: OpenSans-Light, 'Open+Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
     color: antiquewhite;
+    
+/*border*/
+    border-bottom: 3px black solid;
+    border-top: 3px black solid;
+    border-left: 3px black solid;
+    border-right: 3px black solid;
+    border-radius: 10px;
 }
 /*
 #p1{
@@ -25,4 +60,115 @@ p{
 }
 .even{
     color: blue;
+}
+
+.box{
+    border: 5px solid;
+    font-size: 5em;
+    width: 250px;
+    height: 250px;
+}
+
+#box1{
+    background-color: red;
+    box-shadow: 5px 5px 5px black;
+    margin-left: autof;
+}
+
+#box2{
+    background-color: blue;
+    box-shadow: 5px 5px 5px black;
+}
+
+#img1{
+    float: left;
+    margin-right: 30px;
+}
+
+#img2{
+    float: right;
+    margin-left: 30px;
+}
+
+#float{
+    border: 5px solid;
+    display: flow-root;
+}
+
+#overflow{
+    border: 5px solid;
+    height: 100px;
+    overflow: auto;
+}
+
+.a23{
+    border: 2px solid;
+    height: auto;
+    width: 50%;
+    box-sizing: border-box;
+    float: left;
+}
+
+#box24a{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    position: sticky;
+    left: 100px;
+}
+#box24b{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    position: sticky;
+    left: 0px;
+    top: 0px;
+}
+#box24c{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#a26{
+    border: 2px solid;
+}
+#a26 > p{
+    background-color: aqua;
+}
+
+a:link{
+    font-size: 100px;
+}
+a:hover{
+    font-size: 120px;
+    color: brown;
+}
+a:active{
+    font-size: 120px;
+    color: purple;
+}
+a:visited{
+    color: wheat;
+}
+
+li:hover{
+    background-color: yellow;
+}
+li:not(:hover){
+    background-color: gray;
+}
+li:nth-child(2n){
+    background-color: whitesmoke;
+}
+#a27 p{
+    background-color: whitesmoke;
+    padding: 10px;
+    display: none;
+}
+#a27:hover p{
+    display: block;
 }
