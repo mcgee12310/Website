@@ -6,6 +6,7 @@
 
         <title>My first website</title>
         <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/82fa5b87b9.js" crossorigin="anonymous"></script>
 <!--
         <style>
             body{
@@ -350,6 +351,150 @@ static = default position for an element -->
         <p>hello</p>
     </div>
 
+<!-- pseudo-element = keyword added after a selector that's used to style a specific
+                      parts of an element
+                      selector:: pseudo-element -->
+    <h1>Hello</h1>            
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, rem corporis? Minus libero voluptatibus nulla ea assumenda porro autem, esse dignissimos, tenetur doloremque commodi, vero aspernatur dolore illum est voluptatem.</p>
+    <ul id="fruit">
+        <li id="apple">apple</li>
+        <li id="banana">banana</li>
+        <li id="lemon">lemon</li>
+    </ul>
+
+<!-- pagination = method by which a document is separated into pages,and numbers are given -->
+    <h1>This is page #1</h1>
+    <h1>This is page #2</h1>
+    <h1>This is page #3</h1>
+    <h1>This is page #4</h1>
+
+    <div class="pagination">
+        <a href=""><</a>
+        <a href="index.html">1</a>
+        <a href="lyrics.html">2</a>
+        <a href="page2.html">3</a>
+        <a href="images/bonk.gif">4</a>
+        <a href="">></a>
+    </div>
+
+    <div class="dropdown">
+        <button>Food</button>
+        <div class="Foodcontent">
+            <a href="">Apple</a>
+            <a href="">Banana</a>
+            <a href="">Lemon</a>
+        </div>
+    </div>
+
+    <h1>Ceckvodich</h1>
+    <nav class="navbar">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Product</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h3>This is home page</h3>
+        <p>Something</p>
+    </main>
+
+    <!--semantic tags = Keep your content organized
+    Better for SEO
+    Assists screen readers and
+    other tech for accessibility
+    <header> = introductory content 
+    <nav> = navigation bar, links 
+    <main> = main content (section, aside, article,
+    <section> = dependent content
+    <aside> = side content
+    <article> = independent content
+    <footer> = closing content -->
+    <header>
+        <h2>Header</h2>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Product</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <aside>
+            <h2>This is aside</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel modi, similique unde impedit natus veniam fuga eum! Tenetur voluptatem hic deserunt dolorem neque expedita earum fugiat, quia reiciendis maxime rem.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel modi, similique unde impedit natus veniam fuga eum! Tenetur voluptatem hic deserunt dolorem neque expedita earum fugiat, quia reiciendis maxime rem.</p>
+
+        </aside>
+        <section>
+            <h2>This is section</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel modi, similique unde impedit natus veniam fuga eum! Tenetur voluptatem hic deserunt dolorem neque expedita earum fugiat, quia reiciendis maxime rem.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel modi, similique unde impedit natus veniam fuga eum! Tenetur voluptatem hic deserunt dolorem neque expedita earum fugiat, quia reiciendis maxime rem.</p>
+
+        </section>
+        <article>
+            <h2>This is article</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel modi, similique unde impedit natus veniam fuga eum! Tenetur voluptatem hic deserunt dolorem neque expedita earum fugiat, quia reiciendis maxime rem.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel modi, similique unde impedit natus veniam fuga eum! Tenetur voluptatem hic deserunt dolorem neque expedita earum fugiat, quia reiciendis maxime rem.</p>
+
+        </article>
+    </main>
+
+    <footer>
+        <h2>Footer</h2>
+    </footer>
+
+<!-- gallery-->
+    <div class="gallery">
+        <a target="_blank" href="images/cheems.png">
+            <img src="images/cheems.png" alt="cheems">
+        </a>
+        <div class="description">Cheems</div>
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="images/cheems.png">
+            <img src="images/cheems.png" alt="cheems">
+        </a>
+        <div class="description">Cheems</div>
+    </div>
+    <div class="gallery">
+        <a target="_blank" href="images/cheems.png">
+            <img src="images/cheems.png" alt="cheems">
+        </a>
+        <div class="description">Cheems</div>
+    </div>
+
+    <div class="icon">
+        <a href="index.html"><i class="fa-solid fa-house fa-1x" style=""></i></a>
+        <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube fa-1x"></i></a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-1x"></i></a>
+    </div>
+    
+    <div class="flexbox_container">
+        <div class="flexbox" id="flexbox1">1</div>
+        <div class="flexbox" id="flexbox2">2</div>
+        <div class="flexbox" id="flexbox3">3</div>
+        <div class="flexbox" id="flexbox4">4</div>
+        <div class="flexbox" id="flexbox1">1</div>
+        <div class="flexbox" id="flexbox2">2</div>
+        <div class="flexbox" id="flexbox3">3</div>
+        <div class="flexbox" id="flexbox4">4</div>
+        <div class="flexbox" id="flexbox1">1</div>
+        <div class="flexbox" id="flexbox2">2</div>
+        <div class="flexbox" id="flexbox3">3</div>
+        <div class="flexbox" id="flexbox4">4</div>
+    </div>
+
+<!--transform = CSS property lets you rotate, scale, skew, or translate an element-->
+    <div id="transform1">1</div>
+
+<!--animation-->
+    <div id="animation">Hi</div>
 
 
 
@@ -361,6 +506,7 @@ static = default position for an element -->
 
 
 
+    
 
     </body>
 </html>

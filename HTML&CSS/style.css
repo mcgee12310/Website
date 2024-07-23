@@ -172,3 +172,281 @@ li:nth-child(2n){
 #a27:hover p{
     display: block;
 }
+
+h1::first-letter{
+    font-size: 2em;
+    font-style: italic;
+}
+p::first-line{
+    background-color: aquamarine;
+}
+p::selection{
+    color: green;
+    background-color: gray;
+}
+#fruit li::before{
+    content: "😊";
+
+}
+#apple::after{
+    content: "😊";
+}
+#banana::after{
+    content: "😊";
+}
+#lemon::after{
+    content: "😊";
+}
+#fruit li::marker{
+    content: "😊";
+    color: green;
+    font-size: 1.2em;
+}
+
+.pagination{
+    text-align: center;
+}
+.pagination a{
+    color: black;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: inline-block;
+}
+.pagination a.active{
+    background-color: greenyellow;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.pagination a:hover:not(.active){
+    background-color: grey;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.dropdown{
+    display: inline-block;
+}
+.dropdown button{
+    background-color: gray;
+    padding: 10px 15px;
+    border: solid;
+    cursor: pointer;
+}
+.dropdown a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.dropdown .Foodcontent{
+    display: none;
+    position: absolute;
+    background-color: antiquewhite;
+    min-width: 100px;
+    box-shadow: 2px 2px 5px black;
+}
+.dropdown:hover .Foodcontent{
+    display: block;
+}
+.dropdown:hover button{
+    background-color: antiquewhite;
+}
+.dropdown a:hover{
+    background-color: antiquewhite;
+}
+
+.navbar ul{
+    list-style-type: none;
+    background-color: gray;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.navbar a{
+    color: whitesmoke;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navbar a:hover{
+    background-color: grey;
+}
+.navbar li{
+    float: left;
+}
+
+*{
+    box-sizing: border-box;
+}
+aside{
+    width: 20%;
+    float: left;
+    padding: 10px;
+}
+section{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+article{
+    width: 40%;
+    float: left;
+    padding: 10px;
+}
+footer{
+    display: block;
+    clear: both;
+    text-align: center;
+    padding: 25px;
+}
+@media screen and (max-width:600px) {
+    aside, section, article{
+        width: 100%;
+    }
+}
+
+.gallery{
+    display: inline-block;
+    border: 1px solid;
+    margin: 5px;
+    width: 200px;
+}
+.gallery .description{
+    padding: 10px;
+    text-align: center;
+}
+.gallery:hover{
+    border: 1px lightgray;
+}
+.gallery img{
+    width: 100%;
+    height: auto;
+}
+
+.icon{
+    text-align: center;
+}
+.fa-solid.fa-house.fa-1x{
+    color: hsl(0, 0%, 0%);
+}
+.fa-brands.fa-youtube.fa-1x{
+    color: hsl(0, 100%, 50%);
+}
+.fa-brands.fa-facebook.fa-1x{
+    color: hsl(240, 100%, 50%);
+}
+.fa-solid.fa-house.fa-1x:hover{
+    color: hsl(0, 0%, 25%);
+}
+.fa-brands.fa-youtube.fa-1x:hover{
+    color: hsl(0, 100%, 70%);
+}
+.fa-brands.fa-facebook.fa-1x:hover{
+    color: hsl(240, 100%, 70%);
+}
+
+.flexbox_container{
+    border: 10px solid;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: self-start;
+    flex-wrap: wrap;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+.flexbox{
+    width: 150px;
+    height: 150px;
+    font-size: 8em;
+    text-align: center;
+    border-radius: 10px;
+}
+#flexbox1{
+    background-color: red;
+}
+#flexbox2{
+    background-color: green;
+}
+#flexbox3{
+    background-color: blue;
+}
+#flexbox4{
+    background-color: yellow;
+}
+
+#transform1{
+    width: 250px;
+    height: 250px;
+    border: 5px solid;
+    font-size: 12em;
+    text-align: center;
+    background-color: green;
+
+    transform: translate(50px,50px);
+    transform: rotateX(180deg);
+    transform: scale(2,2);
+    transform: skew(45deg,0deg);
+}
+
+#animation{
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    font-size: 12em;
+    text-align: center;
+    animation-name: slideLeft;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+#animation:hover{
+    animation-name: glow;
+    animation-duration: 2s;
+}
+#animation:active{
+    animation-name: slideLeft;
+    animation-duration: 2s;
+}
+@keyframes slideLeft {
+    from{transform: translateX(100%);}
+}
+@keyframes slideRight {
+    to{transform: translateX(100%);}
+}
+@keyframes slideUp {
+    from{transform: translateY(100%);}
+}
+@keyframes slideDown {
+    to{transform: translateY(100%);}
+}
+@keyframes rotate {
+    50%{transform: rotateX(360deg);}
+}
+@keyframes grow {
+    50%{transform: scale(2,2);}
+}
+@keyframes shrink {
+    50%{transform: scale(0.5,0.5);}
+}
+@keyframes fade {
+    50%{opacity: 0;}
+}
+@keyframes fadeIn {
+    50%{opacity: 1;}
+}
+@keyframes colorChange {
+    0%{background-color: red;}
+    20%{background-color: orange;}
+    40%{background-color: yellow;}
+    60%{background-color: green;}
+    80%{background-color: blue;}
+    100%{background-color: purple;}
+}
+@keyframes glow {
+    50%{box-shadow: 0px 0px 50px yellow;}
+}
