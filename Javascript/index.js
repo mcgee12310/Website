@@ -112,7 +112,7 @@ max = 6;
 let randomNum;
 const roll = document.getElementById("a9_roll"); 
 roll.onclick= function(){
-    randomNum = Math.floor(Math.random() * (max)) + min;
+    randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     console.log(randomNum);
     document.getElementById("a9_label").textContent=randomNum;
 }
@@ -152,12 +152,154 @@ const a11_result1 = document.getElementById("a11_result1");
 const paymentResult = document.getElementById("a11_result2"); 
 
 a11_summit.onclick = function(){
-    if(subscribe.checked){
-        a11_result1.textContent="Subcribed";
-    }
-    else a11_result1.textContent="Not subcribed";
+    a11_result1.textContent = subscribe.checked ? "Subcribed" : "Not subcribed";
 
-    if(payment.value == "visa") paymentResult.textContent = `You are paying with Visa`;
-    else if (payment.value == "mastercard") paymentResult.textContent = `You are paying with MasterCard`;
-    else if (payment.value == "giftcard") paymentResult.textContent = `You are paying with PayPal`;
+    switch(payment.value){
+        case "visa":paymentResult.textContent = `You are paying with Visa`; break;
+        case "mastercard":paymentResult.textContent = `You are paying with MasterCard`; break;
+        case "giftcard":paymentResult.textContent = `You are paying with Giftcard`; break;
+        default: ;
+    }
 }
+
+// string methods
+let userName = "Ceck";
+console.log(userName.charAt(0)); 
+console.log(userName.indexOf("e")); 
+console.log(userName.lastIndexOf("e")); 
+console.log(userName.length); 
+userName = userName.trim();
+userName = userName.toUpperCase();
+userName = userName.toLowerCase();
+userName = userName.repeat(3);
+
+
+userName = "BroCode";
+let result = userName.startsWith(" ");
+if(result){
+    console.log("Your username can't begin with ' '");
+}
+else{
+    console.log(userName);
+}
+result = userName.endsWith(" ");
+if(result){
+    console.log("Your username can't end with ' '");
+}
+else{
+    console.log(userName);
+}
+result = userName.includes(" ");
+if(result){
+    console.log("Your username can't include ' '");
+}
+else{
+    console.log(userName);
+}
+
+let phoneNumber="123-456-7890";
+phoneNumber = phoneNumber.replaceAll("-", "");
+phoneNumber = phoneNumber.padStart(15, "0");
+phoneNumber = phoneNumber.padEnd(15, "0");
+console.log(phoneNumber);
+
+
+// string slicing = creating a substring
+// from a portion of another string
+// string.slice(start, end)
+const fullName = "Bro Code";
+let firstName = fullName.slice(0, fullName.indexOf(" "));
+let lastName = fullName.slice(fullName.indexOf(" ")+1);
+let firstChar = fullName.slice(0, 1); 
+let lastChar = fullName.slice(-1);
+console.log(lastName);
+
+
+username = "username: ";
+//---- NO METHOD CHAINING ---
+username = username.trim();
+let letter = username.charAt(0); letter = letter.toUpperCase();
+let extraChars = username.slice(1); extraChars = extraChars.toLowerCase(); username = letter + extraChars;
+
+//---- METHOD CHAINING ---
+username = username.trim().charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+console.log(username);
+
+
+// logical operators = used to combine or manipulate boolean values (true or false)
+// AND = &&
+// OR = ||
+// NOT = !
+
+
+//   = assignment operator
+//  == comparison operator (compare if values are equal)
+// === strict equality operator (compare if values & datatype are equal)
+//  != inequality operator
+// !== strict inequality operator
+if(PI === "3.14") console.log("That is Pi");
+else console.log("That is NOT Pi");
+
+
+// while loop = repeat some code WHILE some condition is true
+/*userName = "";
+while(userName === "" || userName === null){
+    userName = window.prompt(`Enter your name: `);    
+}
+console.log(`Hello ${userName}`);*/
+/*
+let loggedIn = true;
+let password;
+while(!loggedIn){
+    username = window.prompt (`Enter your username`); 
+    password = window.prompt (`Enter your password`);
+    if(username === "myUsername" && password === "myPassword"){ 
+        loggedIn = true;
+        console.log("You are logged in!");
+    } else console.log("Invalid credentials! Please try again");
+}*/
+
+
+/* NUMBER GUESSING GAME
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+let attempts = 0;
+let guess;
+let running = true;
+while(running){
+    guess = window.prompt(`Guess a number between ${minNum} and ${maxNum}`); 
+    guess = Number(guess);
+
+    if(isNaN(guess)){
+        window.alert("Please enter a valid number");
+    }
+    else if(guess < minNum || guess > maxNum) {
+        window.alert("Please enter a valid number");
+    }
+    else{
+        attempts++;
+        if(guess < answer){
+            window.alert("TOO LOW! TRY AGAIN!");
+        }
+        else if(guess > answer){
+            window.alert("TOO HIGH! TRY AGAIN!");
+        }
+        else{
+            window.alert(`Correct! The answer is ${answer}. ${attempts} attempts.`); running = false;
+        } 
+    }
+}*/
+
+
+//  function = A section of reusable code.
+//  A section of reusable code.
+//  Declare code once, use it whenever you want. Call the function to execute that code.
+function happyBirthday (username, age) {
+    console.log("Happy birthday to you!");
+    console.log("Happy birthday to you!"); 
+    console.log(`Happy birthday dear ${username}!`);
+    console.log("Happy birthday to you!"); 
+    console.log(`You are ${age} years old`);
+}
+happyBirthday("BroCode", 25);
