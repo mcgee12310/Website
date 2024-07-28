@@ -207,7 +207,7 @@ console.log(phoneNumber);
 // string slicing = creating a substring
 // from a portion of another string
 // string.slice(start, end)
-const fullName = "Bro Code";
+let fullName = "Bro Code";
 let firstName = fullName.slice(0, fullName.indexOf(" "));
 let lastName = fullName.slice(fullName.indexOf(" ")+1);
 let firstChar = fullName.slice(0, 1); 
@@ -303,3 +303,117 @@ function happyBirthday (username, age) {
     console.log(`You are ${age} years old`);
 }
 happyBirthday("BroCode", 25);
+
+// Temperature conversion
+const textbox = document.getElementById("a24_number");
+const ctof = document.getElementById("ctof");
+const ftoc = document.getElementById("ftoc");
+result = document.getElementById("a24_result");
+let temp;
+function convertTemperature(){
+    if(ctof.checked){
+        temp = Number(textbox.value);
+        temp = temp * 9 / 5 + 32;
+        result.textContent = temp.toFixed(1) + "°F";
+    } 
+    else if(ftoc.checked){
+        temp = Number(textbox.value);
+        temp = 5/9 * (temp-32);
+        result.textContent = temp.toFixed(1) + "°C";
+    } 
+    else result.textContent = "Select a unit";
+}
+
+
+// array = a variable like structure that can hold // more than 1 value
+let fruits = ["apple", "orange", "banana"];
+
+//fruits.push("coconut");
+//fruits.pop();
+//fruits.unshift("mango");
+//fruits.shift();
+
+let numOfFruits = fruits.length;
+let index = fruits.indexOf("mango");
+fruits.sort().reverse();
+for(fruit of fruits) console.log(fruit);
+
+
+// spread operator = ... allows an iterable such as an array or string to be expanded into seperate elements
+// (unpacks the elements)
+let numbers = [1, 2, 3, 4, 5];
+let maximum = Math.max(...numbers); 
+let minimum = Math.min(...numbers);
+console.log(minimum);
+
+username = "Bro Code";
+let letters = [...username].join("-");
+console.log(letters);
+
+fruits = ["apple", "orange", "banana"];
+let vegetables = ["carrots", "celery", "potatoes"];
+let foods = [...fruits, ...vegetables, "eggs", "milk"];
+console.log(foods);
+
+
+// rest parameters = (...rest) allow a function work with a variable number of arguments 
+// by bundling them into an array
+// spread = expands an array into seperate elements
+// rest = bundles seperate elements into an array
+function openFridge(...foods){
+    console.log(foods);
+}
+function getFood(...foods) { 
+    return foods;
+}
+const food1 = "pizza";
+const food2 = "hamburger";
+const food3 = "hotdog";
+const food4 = "sushi";
+const food5 = "ramen";
+openFridge (food1, food2, food3, food4, food5);
+foods = getFood(food1, food2, food3, food4, food5);
+console.log(foods);
+
+
+function sum(...numbers) {
+    let result = 0;
+    for (let number of numbers) {
+        result += number;
+    return result;
+    }
+}
+function getAverage (...numbers){
+    let result = 0;
+    for (let number of numbers) {
+        result += number;
+    }
+return result / numbers.length;
+    }
+const total = getAverage(75, 100, 85, 90, 50);
+console.log(total);
+
+function combineStrings(...strings){
+    return strings.join(" ");
+}
+fullName = combineStrings("Mr.", "Spongebob", "Squarepants", "III");
+console.log(fullName);
+
+// Dice roller
+function rollDice(){
+    const numofDice = document.getElementById("dice_input").value;
+    const dice_result = document.getElementById("dice_result");
+    const dice_image = document.getElementById("dice_image");
+    const values = [];
+    const images = [];
+
+    for(i = 1; i<=numofDice; i++){
+        const value = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+        console.log(value);
+        values.push(value);
+        images.push(`<img src="images/${value}.png">`)
+    }
+
+    dice_result.textContent = `dice: ${values.join(', ')}`;
+    dice_image.innerHTML = images.join("");
+}
