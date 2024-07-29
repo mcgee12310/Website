@@ -390,7 +390,7 @@ function getAverage (...numbers){
     }
 return result / numbers.length;
     }
-const total = getAverage(75, 100, 85, 90, 50);
+let total = getAverage(75, 100, 85, 90, 50);
 console.log(total);
 
 function combineStrings(...strings){
@@ -417,3 +417,181 @@ function rollDice(){
     dice_result.textContent = `dice: ${values.join(', ')}`;
     dice_image.innerHTML = images.join("");
 }
+
+
+// RANDOM PASSWORD GENERATOR
+function generatePassword(length, includeLowercase, includeUppercase, includeNumbers, includeSymbols){
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz"
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const numberChars = "0123456789";
+    const symbolChars = "!@#$%^&*()";
+
+    let allowedChars = "";
+    let password = "";
+
+    allowedChars += includeLowercase ? lowercaseChars : "";
+    allowedChars += includeUppercase ? uppercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? symbolChars : "";
+
+    if(length <=0) return `(password must be atleast 1)`
+    if(allowedChars.length===0) return `(atleast select 1 set)`;
+
+    for(i=0; i<length; i++){
+        const random = Math.floor(Math.random()*allowedChars.length);
+        password+=allowedChars[random];
+    }
+
+    return password;
+}
+const passwordLength = 16;
+const includeLowercase = true;
+const includeUppercase = true; 
+const includeNumbers = true;
+const includeSymbols = true;
+
+const password = generatePassword(passwordLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols);
+console.log(`Generated password: ${password}`);
+
+
+// callback = a function that is passed as an argument to another function.
+// used to handle asynchronous operations: 
+// 1. Reading a file
+// 2. Network requests
+// 3. Interacting with databases
+// "Hey, when you're done, call this next."
+
+hello (goodbye);
+
+function hello(callback) {
+    console.log("Hello!");
+    callback();
+}
+function goodbye(){
+    console.log("Goodbye!");
+}
+
+
+// forEach() = method used to iterate over the elements
+// of an array and apply a specified function (callback) to each element, index, array are provided
+// array.forEach(callback)
+numbers = [1, 2, 3, 4, 5];
+numbers.forEach(double);
+numbers.forEach(display);
+function display(element){console.log(element);}
+function double (element, index, array) { array[index] = element * 2;}
+
+fruits = ["apple", "orange", "banana", "coconut"];
+fruits.forEach(capitalize); 
+fruits.forEach(display);
+function uppercase (element, index, array){ array[index] = element.toUpperCase();
+}
+function lowercase (element, index, array){ array[index] = element.toLowerCase();
+}
+function capitalize (element, index, array){
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1)
+}
+
+
+// .map() = accepts a callback and applies that function
+// to each element of an array, then return a new array
+numbers = [1, 2, 3, 4, 5];
+numbers = numbers.map(square);
+console.log(numbers);
+function square (element){
+    return Math.pow(element, 2)
+}
+
+
+const dates = ["2024-1-10", "2025-2-20", "2026-3-30"];
+const formattedDates = dates.map(formatDates);
+console.log(formattedDates);
+function formatDates (element){
+    const parts = element.split("-");
+    return `${parts [2]}/${parts[1]}/${parts[0]}`;
+}
+
+
+// .filter() = creates a new array by filtering out elements
+numbers = [1, 2, 3, 4, 5, 6, 7];
+let evenNums = numbers.filter(isEven); 
+let oddNums = numbers.filter(isOdd);
+console.log(evenNums);
+function isEven (element){
+    return element % 2 === 0;
+}
+function isOdd(element) {
+    return element % 2 !== 0;
+}
+
+const words = ["apple", "orange", "banana", "kiwi", "pomegranate", "coconut"];
+const shortWords = words.filter(getShortWords);
+console.log(shortWords);
+function getShortWords (element){
+    return element.length <= 6;
+}
+
+// .reduce() = reduce the elements of an array to a single value
+//
+const prices = [5, 30, 10, 25, 15, 20];
+total = prices.reduce(sum);
+console.log(` $${total.toFixed(2)}`);
+function sum(previous, next){ 
+    return previous + next;
+}
+
+const grades = [75, 50, 90, 80, 65, 95];
+maximum = grades.reduce(getMax); 
+minimum = grades.reduce(getMin);
+console.log(maximum); 
+console.log(minimum);
+function getMax (accumulator, element){ return Math.max(accumulator, element);}
+function getMin(accumulator, element){ return Math.min(accumulator, element);}
+
+// function expressions = a way to define functions as // values or variables
+numbers = [1, 2, 3, 4, 5, 6];
+let squares = numbers.map(function(element){ 
+                                return Math.pow(element, 2);
+                            });
+console.log(squares);
+
+
+// arrow functions = a concise way to write function expressions good for simple functions 
+// that you use only once 
+// (parameters) => some code
+hello = (name, age) => { console.log(`Hello ${name}`); console.log(`You are ${age} years old`)};
+hello("Bro", 25);
+
+numbers = [1, 2, 3, 4, 5, 6];
+squares = numbers.map((element) => Math.pow(element, 2));
+console.log(squares);
+
+
+// objec t= A collection of related properties and/or methods
+// Can represent real world objects (people, products, places) object = {key:value,function()};
+// this = reference to the object where THIS is used  
+// (the object depends on the immediate context)
+// person.name = this.name
+//
+const person1 = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    isEmployed: true,
+    food: "pizza",
+    sayHello: function(){console.log(`Hi I am ${this.firstName}.`);},
+    eat: function(){console.log(`${this.firstName} is eating ${this.food}.`)},
+}
+const person2 = {
+    firstName: "Patrick",
+    lastName: "Star",
+    age: 42,
+    isEmployed: false,
+    food: "pizza",
+    sayHello: function(){console.log(`Hi I am Patrick.`);},
+    eat: function(){console.log(`${this.firstName} is eating ${this.food}.`)},
+}
+console.log(person1.firstName);
+console.log(person2.lastName);
+person1.eat();
+person2.sayHello();
