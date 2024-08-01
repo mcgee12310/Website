@@ -582,7 +582,7 @@ const person1 = {
     sayHello: function(){console.log(`Hi I am ${this.firstName}.`);},
     eat: function(){console.log(`${this.firstName} is eating ${this.food}.`)},
 }
-const person2 = {
+let person2 = {
     firstName: "Patrick",
     lastName: "Star",
     age: 42,
@@ -807,8 +807,102 @@ class Person{
     get fullName(){return this._lastName + " "+this._firstName}
     get age(){return this._age}
 }
-const person = new Person("Hieu", "Nguyen", 15);
+let person = new Person("Hieu", "Nguyen", 15);
 console.log(person.firstName);
 console.log(person.lastName);
 console.log(person.fullName);
 console.log(person.age);
+
+// destructuring = extract values from arrays and objects,
+// then assign them to variables in a convenient way 
+// [] to perform array destructuring
+// {} to perform object destructuring
+
+//EXAMPLE 1
+// SWAP THE VALUE OF TWO VARIABLES
+let a = 1;
+let b = 2;
+[a, b] = [b, a];
+console.log(a);
+console.log(b);
+//EXAMPLE 2
+// SWAP 2 ELEMENTS IN AN ARRAY
+let colors = ["red", "green", "blue", "black", "white"];
+[colors[0], colors [4]] = [colors [4], colors[0]];
+console.log(colors);
+//EXAMPLE 3
+// ASSIGN ARRAY ELEMENTS TO VARIABLES
+colors = ["red", "green", "blue", "black", "white"];
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
+//EXAMPLE 4
+// EXTRACT VALUES FROM OBJECTS
+const person3 = {
+    firstName1: "Spongebob", 
+    lastName1: "SquarePants", 
+    age1: 30,
+    job: "Fry Cook",
+}
+const person4 = {
+    firstName1: "Patrick",
+    lastName1: "Star",
+    age1: 34,
+}
+const {firstName1, lastName1, age1, job="Unemployed"} = person3;
+console.log(firstName1);
+console.log(lastName1);
+console.log(age1);
+console.log(job);
+
+function displayPerson ({firstName1, lastName1, age1, job="Unemployed"}){ 
+    console.log(`name: ${firstName1} ${lastName1}`);
+    console.log(`age: ${age1}`);
+    console.log(`job: ${job}`);
+}
+displayPerson(person4);
+
+// nested objects = Objects inside of other Objects.
+// Allows you to represent more complex data structures Child Object is enclosed by a Parent Object
+// Person{Address{}, ContactInfo{}}
+// ShoppingCart{Keyboard {}, Mouse{}, Monitor{}}
+//
+
+
+person = {
+    fullName: "Spongebob Squarepants",
+    age: 30,
+    isStudent: true,
+    hobbies: ["karate", "jellyfishing", "cooking"],
+    address: {
+        street: "124 Conch St.",
+        city: "Bikini Bottom",
+        country: "Int. Water"
+    }
+}
+console.log(person. fullName);
+console.log(person.age);
+console.log(person.isStudent);
+console.log(person. hobbies [2]); 
+console.log(person.address.street);
+
+// array of objects
+fruits = [{name: "apple", color: "red", calories: 95}, 
+    {name: "orange", color: "orange", calories: 45}, 
+    {name: "banana", color: "yellow", calories: 105}, 
+    {name: "coconut", color: "white", calories: 159}, 
+    {name: "pineapple", color: "yellow", calories: 37}];
+fruits.push({name: "apple", color: "red", calories: 95});
+fruits.pop();
+fruits.splice(1,2);
+console.log(fruits[1].calories);
+console.log(fruits);
+fruits.forEach(fruit => console.log(fruit.name));
+fruitNames = fruits.map(fruit => fruit.name); 
+console.log(fruitNames);
+let yellowFruits = fruits.filter(fruit => fruit.color==="yellow");
+console.log(yellowFruits);
+let maxFruits = fruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit:max);
+console.log(maxFruits);
